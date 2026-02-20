@@ -977,7 +977,7 @@
     <footer class="py-12 mt-auto relative z-10 border-t border-white/5" role="contentinfo">
         <div class="container mx-auto px-4 text-center">
             <p class="text-sm text-muted-custom">
-                <span id="footer-built">تم البناء بواسطة</span> 
+                Built by 
                 <a href="https://www.linkedin.com/in/yousef-raslan/" target="_blank" rel="noopener noreferrer" style="color: var(--primary); font-weight: 600;" aria-label="Visit Youssef Reslan LinkedIn profile">
                     Youssef Reslan
                 </a>
@@ -985,7 +985,7 @@
         </div>
     </footer>
 
-    <!-- JAVASCRIPT (نفس الكود السابق مع بعض التحسينات الطفيفة) -->
+    <!-- JAVASCRIPT -->
     <script>
         // ================= CONFIG =================
         const API_URL = 'https://script.google.com/macros/s/AKfycbwk5GqJXwXEnva_6aXCI-O-YoBzCDAQbhxLceeVjIOiaOHmZMrh9EgaXK-9Fh-402Tu/exec';
@@ -1187,15 +1187,35 @@
             }, 800);
         });
 
+        // ✦ التعديل الأول: إصلاح scroll hint (النسخة الصحيحة)
         function initScrollHint() {
             if (!scrollHint || !chipsContainer) return;
-            const hideEffects = () => {
-                scrollHint.classList.add('paused');
-                setTimeout(() => {
-                    if(scrollHint) scrollHint.style.display = 'none';
-                }, 500);
+
+            // تأكد أن الهينت ظاهر ويعمل
+            scrollHint.classList.remove('paused');
+            scrollHint.style.display = '';
+
+            let userScrolled = false;
+            let startX = chipsContainer.scrollLeft;
+
+            const onRealScroll = () => {
+                const currentX = chipsContainer.scrollLeft;
+
+                // يخفي فقط عند حركة أفقية حقيقية
+                if (!userScrolled && Math.abs(currentX - startX) > 10) {
+                    userScrolled = true;
+
+                    scrollHint.classList.add('paused');
+
+                    setTimeout(() => {
+                        if (scrollHint) scrollHint.style.display = 'none';
+                    }, 400);
+
+                    chipsContainer.removeEventListener('scroll', onRealScroll);
+                }
             };
-            chipsContainer.addEventListener('scroll', hideEffects, { once: true });
+
+            chipsContainer.addEventListener('scroll', onRealScroll);
         }
 
         async function fetchResources() {
@@ -1555,7 +1575,10 @@
             document.getElementById('share-header').textContent = t.shareHeader;
             document.getElementById('share-subtitle').textContent = t.shareSubtitle;
             document.getElementById('resources-title').textContent = t.resourcesTitle;
-            document.getElementById('footer-built').textContent = t.footerBuilt;
+            
+            // ✦ التعديل الثاني: تم حذف سطر تحديث الفوتر ليظل ثابتاً
+            // document.getElementById('footer-built').textContent = t.footerBuilt; 
+            
             document.getElementById('toast-message').textContent = t.toastSuccess;
             
             document.getElementById('preview-title').textContent = t.previewTitle;
