@@ -1,0 +1,1757 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- SEO Meta Tags -->
+    <title>كنز المصمم | Kenz Designer - أفضل مكتبة لأدوات ومصادر UI/UX</title>
+    <meta name="description" content="وجهتك الأولى لأفضل أدوات ومصادر UI/UX في مكان واحد. مكتبة شاملة للمصممين المحترفين." />
+    <meta name="keywords" content="UI, UX, Design, Tools, Resources, Icons, UI Kits, Design Systems, كنز المصمم" />
+    <meta name="author" content="Youssef Reslan" />
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="كنز المصمم | Kenz Designer" />
+    <meta property="og:description" content="وجهتك الأولى لأفضل أدوات ومصادر UI/UX في مكان واحد" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://kenzdesigner.com" />
+    <meta property="og:image" content="https://z-cdn-media.chatglm.cn/files/67575ec5-951e-4570-833a-3603b0c75abc.png" />
+    <meta property="og:locale" content="ar_AR" />
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="كنز المصمم | Kenz Designer" />
+    <meta name="twitter:description" content="وجهتك الأولى لأفضل أدوات ومصادر UI/UX" />
+    <meta name="twitter:image" content="https://z-cdn-media.chatglm.cn/files/67575ec5-951e-4570-833a-3603b0c75abc.png" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%238E51FF'%3E%3Cpath d='M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z'/%3E%3C/svg%3E" />
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Cairo Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Cairo', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            primary: '#8E51FF',
+                            secondary: '#d946ef',
+                        },
+                        gradient: {
+                            start: '#C7A1F8',
+                            end: '#783FD7'
+                        }
+                    },
+                    borderRadius: {
+                        'xl': '12px',
+                        '3xl': '1.5rem',
+                    },
+                    animation: {
+                        'blob': 'blob 30s infinite',
+                        'slideUp': 'slideUp 0.6s ease-out forwards',
+                        'fadeIn': 'fadeIn 0.6s ease-out forwards',
+                        'float': 'float 3s ease-in-out infinite',
+                        'glow': 'glow 4s ease-in-out infinite',
+                        'stagger': 'stagger 0.6s ease-out forwards',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: 0, transform: 'translateY(30px)' },
+                            '100%': { opacity: 1, transform: 'translateY(0)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: 0, transform: 'translateY(20px)' },
+                            '100%': { opacity: 1, transform: 'translateY(0)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        glow: {
+                            '0%, 100%': { opacity: 0.3 },
+                            '50%': { opacity: 0.6 },
+                        },
+                        stagger: {
+                            '0%': { opacity: 0, transform: 'translateY(20px)' },
+                            '100%': { opacity: 1, transform: 'translateY(0)' },
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* ================= VARIABLES & THEME ================= */
+        :root {
+            --bg-color: #0a0a0f;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --text-main: #ffffff;
+            --text-muted: #B6B6B7;
+            --text-card: #B6B6B7;
+            --glass-bg: rgba(10, 10, 15, 0.7);
+            --glass-border: rgba(142, 81, 255, 0.15);
+            --search-bg: rgba(255, 255, 255, 0.03);
+            --search-border: rgba(255, 255, 255, 0.1);
+            --chip-bg: rgba(255, 255, 255, 0.05);
+            --chip-border: rgba(255, 255, 255, 0.1);
+            --primary: #8E51FF;
+            --gradient-start: #C7A1F8;
+            --gradient-end: #783FD7;
+        }
+
+        html[data-theme="light"] {
+            --bg-color: #f8fafc;
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --card-border: rgba(0, 0, 0, 0.2);
+            --text-main: #0f172a;
+            --text-muted: #1e293b; /* Slate 800 */
+            --text-card: #334155;   /* Slate 700 */
+            --glass-bg: rgba(255, 255, 255, 0.9);
+            --glass-border: rgba(142, 81, 255, 0.2);
+            --search-bg: rgba(255, 255, 255, 0.95);
+            --search-border: rgba(0, 0, 0, 0.2);
+            --chip-bg: rgba(255, 255, 255, 0.8);
+            --chip-border: rgba(0, 0, 0, 0.15);
+            --about-bg: rgba(255, 255, 255, 0.95);
+            --about-border: rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Cairo', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .text-muted-custom { color: var(--text-muted); }
+        .text-card-custom { color: var(--text-card); }
+
+        html[data-theme="light"] #about-name { color: #000000; }
+        html[data-theme="light"] ::placeholder { color: #475569; }
+
+        img, video, iframe {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* ================= PAGE LOAD ANIMATION ================= */
+        body.loading { overflow: hidden; }
+        .page-loader {
+            position: fixed; inset: 0; background: var(--bg-color); z-index: 9999;
+            display: flex; align-items: center; justify-content: center;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        .page-loader.hidden { opacity: 0; visibility: hidden; }
+        .loader-logo { animation: float 2s ease-in-out infinite; }
+
+        /* ================= MASTER GRADIENT ================= */
+        .master-gradient {
+            background: linear-gradient(to left, var(--gradient-start), var(--gradient-end));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .master-gradient-bg { background: linear-gradient(to left, var(--gradient-start), var(--gradient-end)); }
+
+        /* ================= GLASSMORPHISM ================= */
+        .glass {
+            background: var(--glass-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border-bottom:1px solid var(--glass-border);
+        }
+        .glass-card {
+            background: var(--card-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--card-border);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+        .glass-card:hover {
+            transform: translateY(-4px); border-color: var(--primary);
+            box-shadow: 0 20px 40px -10px rgba(142, 81, 255, 0.25);
+        }
+
+        /* ================= SEARCH BAR ================= */
+        .search-container {
+            background: var(--search-bg); border: 1px solid var(--search-border);
+            color: var(--text-main); transition: all 0.3s ease;
+            box-shadow: 0 0 40px rgba(142, 81, 255, 0.5); outline: none !important;
+        }
+        .search-container:focus-within {
+            border-color: #8E51FF !important;
+            box-shadow: 0 0 0 3px rgba(142, 81, 255, 0.3), 0 0 60px rgba(142, 81, 255, 0.9);
+            outline: none !important;
+        }
+        .search-container input, .search-container input:focus {
+            outline: none !important; box-shadow: none !important;
+        }
+        
+        /* FIX 2: Natural Search Input Overflow Handling */
+        .search-container input {
+            white-space: nowrap !important;
+            overflow: hidden !important;
+            text-overflow: ellipsis !important;
+        }
+
+        /* ================= CHIPS ================= */
+        .chips-wrapper { display: flex; gap: 0.75rem; padding: 0.5rem 0; flex-wrap: wrap; justify-content: center; }
+        @media (max-width: 768px) {
+            .chips-wrapper { flex-wrap: nowrap; overflow-x: auto; justify-content: start; padding-bottom: 1rem; scroll-snap-type: x mandatory; }
+            .chip { scroll-snap-align: start; flex-shrink: 0; }
+        }
+        .hide-scroll::-webkit-scrollbar { display: none; }
+        .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .chip {
+            background: var(--chip-bg); border: 1px solid var(--chip-border); color: var(--text-main);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; transform-origin: center;
+        }
+        .chip:hover { transform: scale(1.05); border-color: var(--primary); }
+        .chip.active {
+            background: linear-gradient(135deg, var(--primary) 0%, #d946ef 100%); color: white;
+            border-color: transparent; 
+            box-shadow: none;
+        }
+
+        /* ================= FIX 1: MIRRORED MOBILE SCROLL HINT ANIMATION ================= */
+        
+        /* Base Hint Style */
+        .mobile-scroll-hint {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 20;
+            pointer-events: none;
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-scroll-hint {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 40px;
+                height: 40px;
+                background: rgba(142, 81, 255, 0.2);
+                backdrop-filter: blur(4px);
+                border: 1px solid rgba(142, 81, 255, 0.4);
+                border-radius: 50%;
+                color: #fff;
+                box-shadow: 0 0 15px rgba(142, 81, 255, 0.3);
+            }
+            
+            .mobile-scroll-hint.paused {
+                animation: none !important;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+        }
+
+        @keyframes handDragLeft {
+            0% { opacity: 0; transform: translateX(20px) scale(0.8); }
+            20% { opacity: 1; transform: translateX(0) scale(1); }
+            50% { transform: translateX(-30px) scale(0.95); }
+            80% { opacity: 1; transform: translateX(-50px) scale(0.9); }
+            100% { opacity: 0; transform: translateX(-60px) scale(0.8); }
+        }
+
+        @keyframes handDragRight {
+            0% { opacity: 0; transform: translateX(-20px) scale(0.8); }
+            20% { opacity: 1; transform: translateX(0) scale(1); }
+            50% { transform: translateX(30px) scale(0.95); }
+            80% { opacity: 1; transform: translateX(50px) scale(0.9); }
+            100% { opacity: 0; transform: translateX(60px) scale(0.8); }
+        }
+
+        html[dir="rtl"] .mobile-scroll-hint {
+            right: auto;
+            left: 20px;
+            animation: handDragRight 2.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        }
+
+        html[dir="ltr"] .mobile-scroll-hint {
+            left: auto;
+            right: 20px;
+            animation: handDragLeft 2.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        }
+
+        /* ================= CARD STYLES ================= */
+        .card-badge {
+            font-size: 0.65rem; padding: 0.375rem 0.875rem; border-radius: 9999px;
+            text-transform: uppercase; letter-spacing: 0.05em; border: 1px solid; font-weight: 700; white-space: nowrap;
+        }
+        .open-btn {
+            color: var(--text-main); border-color: var(--card-border);
+            background: rgba(255, 255, 255, 0.05); transition: all 0.3s ease;
+        }
+        html[data-theme="light"] .open-btn { background: rgba(0, 0, 0, 0.03); }
+        .glass-card:hover .open-btn {
+            background-color: var(--primary); color: #ffffff; border-color: var(--primary); transform: translateY(-2px);
+        }
+
+        /* ================= ANIMATIONS ================= */
+        .animate-fade-in { animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .animate-stagger { animation: stagger 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .mobile-menu-anim { transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); }
+
+        /* ================= ABOUT SECTION ================= */
+        .about-container { display: flex; align-items: center; gap: 3rem; }
+        .about-content { flex: 1; }
+        .about-designer-card {
+            background: linear-gradient(to bottom left, rgba(168, 85, 247, 0.1), rgba(18, 18, 18, 0.95), rgba(18, 18, 18, 0.95));
+            border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s ease;
+        }
+        html[data-theme="light"] .about-designer-card {
+            background: linear-gradient(to bottom left, rgba(168, 85, 247, 0.05), rgba(248, 250, 252, 0.95), rgba(248, 250, 252, 0.95));
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        html[dir="rtl"] .about-container { flex-direction: row; }
+        html[dir="rtl"] .about-content { text-align: right; margin-right: 2rem; order: 2; }
+        html[dir="rtl"] .about-image-container { order: 1; }
+        html[dir="ltr"] .about-container { flex-direction: row-reverse; }
+        html[dir="ltr"] .about-content { text-align: left; margin-left: 2rem; order: 1; }
+        html[dir="ltr"] .about-image-container { order: 2; }
+        @media (max-width: 768px) {
+            .about-container { flex-direction: column !important; text-align: center !important; gap: 2rem; }
+            .about-content { text-align: center !important; margin: 0 !important; order: 2 !important; }
+            .about-image-container { order: 1 !important; }
+            .about-buttons { justify-content: center !important; }
+        }
+
+        /* ================= FIX A: About Paragraph Wrapping (IMPROVED) ================= */
+        .about-text-fix {
+            overflow-wrap: break-word;
+            word-break: break-word;
+            max-width: 100%;
+            line-height: 1.7;
+        }
+
+        #about-desc,
+        #about-highlight,
+        #about-desc-end {
+            display: inline;
+        }
+
+        /* ================= FIX 4: Light Mode Buttons Visibility ================= */
+        html[data-theme="light"] .about-buttons a {
+            background: rgba(0,0,0,0.03);
+            border: 1px solid rgba(0,0,0,0.15);
+        }
+
+        html[data-theme="light"] .about-buttons a:hover {
+            background: rgba(142,81,255,0.08);
+            border-color: rgba(142,81,255,0.4);
+        }
+
+        /* ================= SHARE TOOL SECTION ================= */
+        .share-section {
+            background: linear-gradient(135deg, rgba(142, 81, 255, 0.05) 0%, rgba(199, 161, 248, 0.05) 100%);
+            border: 1px solid rgba(142, 81, 255, 0.1);
+        }
+        .preview-card { background: var(--card-bg); backdrop-filter: blur(12px); border: 1px solid var(--card-border); transition: all 0.3s ease; }
+        .form-input {
+            background: var(--search-bg); border: 1px solid var(--search-border); color: var(--text-main);
+            transition: all 0.3s ease; outline: none !important;
+        }
+        .form-input:focus {
+            border-color: var(--primary); box-shadow: 0 0 0 3px rgba(142, 81, 255, 0.2); outline: none !important;
+        }
+        select.form-input { background-color: var(--search-bg); color: var(--text-main); }
+        select.form-input option { background-color: var(--bg-color); color: var(--text-main); }
+        .submit-btn {
+            background: linear-gradient(to left, var(--gradient-end), var(--gradient-start)); color: white;
+            transition: all 0.3s ease;
+        }
+        .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(142, 81, 255, 0.3); }
+
+        .share-container { display: flex; flex-direction: row; gap: 3rem; }
+        @media (max-width: 1024px) { .share-container { flex-direction: column !important; } }
+
+        /* ================= TOAST NOTIFICATION ================= */
+        .toast {
+            position: fixed; top: 100px; right: 20px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white;
+            padding: 1rem 1.5rem; border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3); z-index: 1000;
+            transform: translateX(150%); transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .toast.show { transform: translateX(0); }
+
+        /* ================= HEADER LAYOUT ================= */
+        .header-content { display: flex; align-items: center; justify-content: space-between; width: 100%; height: 100%; }
+        .header-nav-center {
+            position: absolute; left: 50%; transform: translateX(-50%);
+            display: flex; align-items: center; gap: 1.5rem;
+        }
+        .logo-text { color: white; }
+        html[data-theme="light"] .logo-text { color: #0f172a; }
+
+        .theme-toggle-desktop {
+            width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            background: transparent; border: none; color: var(--text-main); transition: all 0.3s ease; cursor: pointer; padding: 0;
+        }
+        .theme-toggle-desktop:hover { color: var(--primary); transform: scale(1.1); background: rgba(142, 81, 255, 0.05); }
+
+        .theme-switch {
+            width: 48px; height: 26px; background-color: #4b5563; border-radius: 9999px;
+            position: relative; transition: background-color 0.3s ease; cursor: pointer;
+        }
+        .theme-switch.active { background-color: #8E51FF; }
+        .theme-switch-thumb {
+            width: 20px; height: 20px; background-color: white; border-radius: 50%;
+            position: absolute; top: 3px; right: 3px; transition: transform 0.3s ease;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+        .theme-switch.active .theme-switch-thumb { transform: translateX(-100%); }
+        html[dir="ltr"] .theme-switch-thumb { left: 3px; right: auto; }
+        html[dir="ltr"] .theme-switch.active .theme-switch-thumb { transform: translateX(100%); }
+
+        @media (max-width: 768px) {
+            .header-nav-center { display: none; }
+            .theme-toggle-desktop { display: none !important; }
+        }
+
+        /* ================= FOOTER ================= */
+        .footer-link { color: var(--text-muted); transition: color 0.3s ease; }
+        .footer-link:hover { color: var(--primary); }
+        .footer-link.active { color: var(--primary); font-weight: 700; }
+
+        /* ================= FIX B: HERO BREATHING GLOW ================= */
+        @keyframes breatheGlow {
+            0%, 100% { opacity: 0.12; transform: scale(1); }
+            50% { opacity: 0.22; transform: scale(1.08); }
+        }
+
+        .hero-section { position: relative; z-index: 10; }
+        .hero-glow {
+            position: absolute;
+            width: 340px;
+            height: 340px;
+            background: var(--primary);
+            filter: blur(90px);
+            opacity: 0.14;
+            border-radius: 50%;
+            z-index: -1;
+            pointer-events: none;
+            animation: breatheGlow 6s ease-in-out infinite;
+        }
+        .hero-glow-left { top: 10%; left: -100px; }
+        .hero-glow-right { top: 20%; right: -100px; animation-delay: -3s; }
+
+        @media (max-width: 768px) {
+            .hero-glow {
+                width: 260px;
+                height: 260px;
+                filter: blur(80px);
+                opacity: 0.07;
+            }
+            .hero-glow-left { left: -220px; }
+            .hero-glow-right { right: -220px; }
+        }
+
+        /* ================= REDUCED MOTION SUPPORT ================= */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        /* ================= LOAD MORE / SHOW LESS BUTTONS ================= */
+        .load-buttons-container { display: flex; gap: 1rem; justify-content: center; align-items: center; flex-wrap: wrap; }
+        .load-buttons-container.hidden { display: none !important; }
+        .load-btn {
+            padding: 0.75rem 2rem; border-radius: 12px; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.05em; transition: all 0.3s ease; border: 1px solid;
+        }
+        .show-more-btn {
+            background: linear-gradient(to left, var(--gradient-end), var(--gradient-start));
+            color: white; border-color: transparent;
+        }
+        .show-more-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(142, 81, 255, 0.3); }
+        .show-less-btn {
+            background: transparent; color: var(--text-main); border-color: var(--card-border);
+        }
+        .show-less-btn:hover { background: rgba(255, 255, 255, 0.05); border-color: var(--primary); }
+
+        /* ================= SKELETON LOADER ================= */
+        @keyframes shimmer {
+            0% { background-position: -1000px 0; }
+            100% { background-position: 1000px 0; }
+        }
+        .skeleton {
+            background: linear-gradient(90deg, var(--card-bg) 0%, rgba(142, 81, 255, 0.1) 50%, var(--card-bg) 100%);
+            background-size: 1000px 100%; animation: shimmer 2s infinite;
+        }
+
+        /* ================= FIX D: MOBILE MENU ================= */
+        .mobile-menu-overlay {
+            position: fixed; inset: 0; background: rgba(0, 0, 0, 0.5); z-index: 45;
+            opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; backdrop-filter: blur(4px);
+        }
+        .mobile-menu-overlay.active { opacity: 1; visibility: visible; }
+
+        /* SHARE FORM DIRECTION FIX */
+        #share html, #share { direction: inherit; }
+        html[dir="rtl"] #share .form-container label,
+        html[dir="rtl"] #share .form-container input,
+        html[dir="rtl"] #share .form-container textarea,
+        html[dir="rtl"] #share .form-container select { text-align: right; }
+        html[dir="ltr"] #share .form-container label,
+        html[dir="ltr"] #share .form-container input,
+        html[dir="ltr"] #share .form-container textarea,
+        html[dir="ltr"] #share .form-container select { text-align: left; }
+        html[dir="ltr"] #share .form-container select { padding-left: 1rem; padding-right: 2.5rem; }
+        html[dir="rtl"] #share .form-container select { padding-right: 1rem; padding-left: 2.5rem; }
+
+        /* ================= NEW MOBILE FIXES ================= */
+        @media (max-width: 768px) {
+            #search-input { font-size: 1rem; }
+            footer { padding-bottom: calc(1.5rem + env(safe-area-inset-bottom)); }
+        }
+
+        /* ================= FIX 1: Custom Scrollbar (Desktop) ================= */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(142, 81, 255, 0.35);
+            border-radius: 999px;
+            border: 2px solid transparent;
+            background-clip: content-box;
+        }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(142, 81, 255, 0.6); }
+        * { scrollbar-width: thin; scrollbar-color: rgba(142,81,255,0.35) transparent; }
+
+        @media (max-width: 768px) { main { min-height: calc(100dvh - 160px); } }
+
+        html[data-theme="light"] #resources-counter {
+            background: rgba(0,0,0,0.04);
+            border-color: rgba(0,0,0,0.15);
+            color: #334155;
+        }
+
+        html[data-theme="light"] .mobile-scroll-hint {
+            color: #0f172a;
+            background: rgba(0,0,0,0.06);
+            border-color: rgba(0,0,0,0.15);
+        }
+        html[data-theme="dark"] .mobile-scroll-hint { color: #ffffff; }
+
+        #mobile-menu {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            z-index: 90;
+            transform-origin: top;
+            will-change: transform;
+        }
+
+        .hero-glow { animation: heroBreathSync 7s ease-in-out infinite; }
+        @keyframes heroBreathSync {
+            0% { transform: translate(0, 0) scale(0.96); opacity: 0.12; }
+            50% { transform: translate(20px, 24px) scale(1.08); opacity: 0.22; }
+            100% { transform: translate(0, 0) scale(0.96); opacity: 0.12; }
+        }
+
+        @media (max-width: 768px) {
+            .about-designer-card .about-content { text-align: center; }
+            .about-designer-card .about-buttons { justify-content: center; }
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col relative selection:bg-[#8E51FF]/30 loading" id="main-body">
+
+    <!-- PAGE LOADER -->
+    <div class="page-loader" id="page-loader">
+        <svg class="w-16 h-16 text-[#8E51FF] drop-shadow-[0_0_20px_rgba(142,81,255,0.6)] loader-logo" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z" />
+        </svg>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div class="toast hidden" id="toast">
+        <div class="flex items-center gap-3">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span id="toast-message">تم استلام أداتك بنجاح! أداتك الآن قيد المراجعة لتنضم للمكتبة.</span>
+        </div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay" onclick="toggleMobileMenu(true)"></div>
+
+    <!-- HEADER -->
+    <header class="fixed top-0 w-full z-[100] glass transform-gpu isolate transition-all duration-300">
+        <div class="container mx-auto px-4 h-20">
+            <div class="header-content">
+                <!-- Right Side (Logo) -->
+                <div class="flex items-center gap-3">
+                    <svg class="w-8 h-8 text-[#8E51FF] drop-shadow-[0_0_10px_rgba(142,81,255,0.4)]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z" />
+                    </svg>
+                    <h1 id="main-logo" class="text-xl font-bold tracking-tight logo-text">كنز المصمم</h1>
+                </div>
+
+                <!-- Center: Navigation -->
+                <div class="header-nav-center">
+                    <button onclick="scrollToTop()" class="text-sm font-bold hover:text-[#8E51FF] transition-colors">
+                        الرئيسية
+                    </button>
+                    <div class="h-6 w-px bg-white/10"></div>
+                    <button onclick="scrollToSection('share')" class="text-sm font-bold hover:text-[#8E51FF] transition-colors">
+                        شارك أداتك
+                    </button>
+                    <div class="h-6 w-px bg-white/10"></div>
+                    <button onclick="scrollToSection('about')" class="text-sm font-bold hover:text-[#8E51FF] transition-colors">
+                        من مصمم المكتبة؟
+                    </button>
+                </div>
+
+                <!-- Left: Language Toggle & Theme Toggle -->
+                <div class="flex items-center gap-3">
+                    <!-- Theme Toggle Desktop -->
+                    <button onclick="toggleTheme()" class="theme-toggle-desktop" aria-label="Toggle Theme">
+                        <svg id="icon-sun" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                        <svg id="icon-moon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                    </button>
+
+                    <button onclick="toggleLanguage()" class="px-4 py-2 rounded-lg border border-white/10 text-xs font-bold uppercase hover:bg-white/5 transition-colors hidden md:inline-flex" aria-label="Change language">
+                        English
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg glass-card" aria-label="Toggle menu" aria-expanded="false" id="hamburger-btn">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobile-menu" class="md:hidden mobile-menu-anim fixed top-20 left-0 w-full glass border-t border-white/5 transform -translate-y-[150%] flex flex-col p-4 gap-3 origin-top shadow-2xl z-40">
+            <button onclick="scrollToTop(); toggleMobileMenu(true)" class="w-full text-start px-4 py-3 rounded-xl hover:bg-white/5 transition-colors font-medium">
+                الرئيسية
+            </button>
+            <button onclick="scrollToSection('share'); toggleMobileMenu(true)" class="w-full text-start px-4 py-3 rounded-xl hover:bg-white/5 transition-colors font-medium">
+                شارك أداتك
+            </button>
+            <button onclick="scrollToSection('about'); toggleMobileMenu(true)" class="w-full text-start px-4 py-3 rounded-xl hover:bg-white/5 transition-colors font-medium">
+                من مصمم المكتبة؟
+            </button>
+            <button onclick="toggleTheme()" class="w-full flex items-center justify-between px-4 py-3 rounded-xl hover:bg-white/5 transition-colors">
+                <span id="mobile-theme-text">تبديل السمة</span>
+                <div class="theme-switch" id="mobile-theme-switch">
+                    <div class="theme-switch-thumb"></div>
+                </div>
+            </button>
+            <button onclick="toggleLanguage()" class="w-full flex items-center justify-between px-4 py-3 rounded-xl hover:bg-white/5 transition-colors">
+                <span id="mobile-menu-lang-label">اللغة</span>
+                <span class="text-xs font-bold text-[#8E51FF]" id="mobile-lang-text">EN</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-grow pt-32 pb-20 px-4 relative z-10 animate-slideUp">
+        <div class="container mx-auto max-w-6xl">
+            
+            <!-- HERO -->
+            <section class="text-center mb-12 hero-section">
+                <!-- Badge -->
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-8 border-[#8E51FF]/30 shadow-lg shadow-purple-500/10 relative z-10">
+                    <span class="w-2 h-2 rounded-full bg-[#8E51FF] animate-pulse" aria-hidden="true"></span>
+                    <span class="text-sm font-bold text-[#8E51FF]" id="hero-badge">مُحدّث باستمرار</span>
+                </div>
+
+                <!-- HERO GLOWS (Left and Right) -->
+                <div class="hero-glow hero-glow-left"></div>
+                <div class="hero-glow hero-glow-right"></div>
+
+                <h2 class="text-5xl md:text-8xl font-black mb-6 leading-tight tracking-tight relative z-10">
+                    <span class="master-gradient" id="hero-title">كنز المصمم</span>
+                </h2>
+                
+                <p class="text-lg md:text-2xl mb-10 max-w-3xl mx-auto leading-relaxed font-semibold text-muted-custom relative z-10" id="hero-subtitle">
+                    وجهتك الأولى لأفضل أدوات ومصادر UI/UX التي يحتاجها كل مصمم محترف في مكان واحد.
+                </p>
+
+                <!-- SEARCH -->
+                <div class="max-w-3xl mx-auto relative mb-10 relative z-10">
+                    <div class="search-container rounded-2xl flex items-center px-6 py-4">
+                        <svg class="w-6 h-6 text-gray-400 shrink-0 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                        <input 
+                            type="search" 
+                            id="search-input" 
+                            placeholder="ابحث عن أداة أو مصدر للتصميم" 
+                            class="w-full bg-transparent border-none focus:ring-0 text-lg py-2 px-4 placeholder-gray-500 transition-colors font-medium"
+                            onkeyup="handleSearch()"
+                            aria-label="Search for tools and resources"
+                        >
+                    </div>
+                </div>
+            </section>
+
+            <!-- CHIPS -->
+            <section class="mb-8 relative" aria-label="Category filters">
+                <div id="chips-container" class="chips-wrapper hide-scroll px-2" dir="rtl" role="tablist">
+                    <!-- JS will populate -->
+                </div>
+
+                <!-- Mobile Scroll Hint Element -->
+                <div id="scroll-hint" class="mobile-scroll-hint">
+                    <svg class="w-6 h-6 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11"></path>
+                    </svg>
+                </div>
+            </section>
+
+            <!-- RESOURCES HEADER -->
+            <div class="flex items-center justify-between mb-6 border-b border-white/5 pb-4">
+                <h3 class="text-2xl md:text-3xl font-bold tracking-tight master-gradient" id="resources-title">المصادر المميزة</h3>
+                <span class="text-muted-custom font-medium text-sm md:text-base bg-white/5 px-3 py-1 rounded-full border border-white/5 whitespace-nowrap" id="resources-counter" role="status" aria-live="polite">0 مصدر متاح</span>
+            </div>
+
+            <!-- SKELETON -->
+            <div id="skeleton-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12" aria-hidden="true">
+                <div class="glass-card rounded-2xl p-6 h-64 skeleton"></div>
+                <div class="glass-card rounded-2xl p-6 h-64 skeleton"></div>
+                <div class="glass-card rounded-2xl p-6 h-64 skeleton"></div>
+                <div class="glass-card rounded-2xl p-6 h-64 skeleton"></div>
+                <div class="glass-card rounded-2xl p-6 h-64 skeleton"></div>
+            </div>
+
+            <!-- RESOURCES GRID -->
+            <div id="resources-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 hidden" role="list">
+                <!-- JS Cards -->
+            </div>
+
+            <!-- LOAD MORE & SHOW LESS BUTTONS -->
+            <div class="text-center mt-8">
+                <div id="load-buttons-container" class="load-buttons-container hidden">
+                    <button id="show-more-btn" onclick="showMore()" class="show-more-btn load-btn">
+                        عرض المزيد
+                    </button>
+                    <button id="show-less-btn" onclick="showLess()" class="show-less-btn load-btn hidden">
+                        عرض أقل
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- SHARE YOUR TOOL SECTION -->
+    <section id="share" class="py-24 px-4 relative z-10">
+        <div class="container mx-auto max-w-6xl">
+            <!-- Section Header -->
+            <div class="text-center mb-14">
+                <h3 class="text-3xl md:text-4xl font-bold master-gradient mb-4" id="share-header">شاركنا أداتك المفضلة</h3>
+                <p class="text-muted-custom" id="share-subtitle">ساهم في إثراء المكتبة بمشاركة أدواتك وموارد UI/UX المفضلة مع المجتمع.</p>
+            </div>
+
+            <!-- Form & Preview -->
+            <div class="share-section rounded-2xl p-8 md:p-12">
+                <div class="share-container">
+                    <!-- Form Container -->
+                    <div class="form-container flex-1 space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-muted-custom" id="tool-name-label">اسم الأداة</label>
+                            <input 
+                                type="text" 
+                                id="tool-name"
+                                class="form-input w-full px-4 py-3 rounded-xl text-lg"
+                                placeholder="Tool Name"
+                                oninput="updatePreview()"
+                            >
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-muted-custom" id="tool-url-label">رابط الموقع</label>
+                            <input 
+                                type="url" 
+                                id="tool-url"
+                                class="form-input w-full px-4 py-3 rounded-xl text-lg"
+                                placeholder="https://example.com"
+                                oninput="fetchFavicon()"
+                                onblur="fetchFavicon()"
+                            >
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-muted-custom" id="tool-category-label">التصنيف</label>
+                            <div class="relative">
+                                <select 
+                                    id="tool-category"
+                                    class="form-input w-full px-4 py-3 rounded-xl text-lg appearance-none cursor-pointer"
+                                    onchange="updatePreview()"
+                                >
+                                    <option value="">اختر تصنيفاً</option>
+                                </select>
+                                <div class="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none rtl:right-auto rtl:left-0 text-muted-custom">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-muted-custom" id="tool-description-label">وصف قصير</label>
+                            <textarea 
+                                id="tool-description"
+                                class="form-input w-full px-4 py-3 rounded-xl text-lg h-32 resize-none"
+                                placeholder="جملة مختصره توضّح وظيفة الأداة أو فائدتها الأساسية....."
+                                oninput="updatePreview()"
+                            ></textarea>
+                        </div>
+                        
+                        <button onclick="submitTool()" class="submit-btn w-full py-4 rounded-xl text-lg font-bold mt-8" id="submit-btn">
+                            إضافة الأداة
+                        </button>
+
+                        <!-- Important Notes -->
+                        <div class="mt-8 pt-6 border-t border-white/10">
+                            <h4 class="text-lg font-bold mb-4 master-gradient" id="important-notes-title">ملاحظات هامة</h4>
+                            <ul class="space-y-3 text-muted-custom text-sm">
+                                <li class="flex items-start gap-2">
+                                    <span class="text-[#8E51FF] mt-1">•</span>
+                                    <span id="important-note-1">يرجى التأكد من أن الأداة التي تقوم بإضافتها تدعم مصممين UI/UX بشكل مباشر.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-[#8E51FF] mt-1">•</span>
+                                    <span id="important-note-2">سيتم مراجعة جميع الأدوات يدوياً قبل إضافتها إلى المكتبة.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Live Preview Container -->
+                    <div class="preview-container flex-1">
+                        <h4 class="text-xl font-bold mb-6 master-gradient" id="preview-title">سيظهر شكل الأداة هنا قبل الإرسال</h4>
+                        
+                        <div class="glass-card rounded-2xl p-6">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="w-12 h-12 rounded-xl overflow-hidden bg-white/5 border border-white/10 p-1.5 flex items-center justify-center">
+                                    <img src="" alt="Website favicon" id="preview-icon" class="w-full h-full object-contain hidden">
+                                    <div id="preview-icon-placeholder" class="w-6 h-6 text-gray-400">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                          <rect x="4" y="4" width="16" height="16" rx="4"></rect>
+                                          <path d="M8 12h8"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <span class="card-badge bg-purple-500/10 text-purple-400 border-purple-500/30" id="preview-category">أداة</span>
+                            </div>
+                            
+                            <div class="mb-6 flex-grow">
+                                <h4 class="text-lg font-bold mb-2 truncate" id="preview-name">Tool Name</h4>
+                                <p class="text-sm leading-relaxed line-clamp-2 text-muted-custom" id="preview-description">جملة مختصره توضّح وظيفة الأداة أو فائدتها الأساسية</p>
+                            </div>
+                            
+                            <div class="open-btn w-full py-3 rounded-xl border flex items-center justify-center gap-2 text-sm font-bold uppercase tracking-wide">
+                                <span id="preview-open-btn">فتح</span>
+                                <svg class="w-4 h-4 transition-transform group-hover:-translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-24 px-4 relative z-10">
+        <div class="container mx-auto max-w-5xl">
+            <!-- Section Header -->
+            <div class="text-center mb-14">
+                <h3 class="text-3xl md:text-4xl font-bold master-gradient mb-4" id="about-header">من مصمم المكتبة؟</h3>
+                <p class="text-muted-custom" id="about-subheader">معلومات بسيطة عن مصمم مكتبة كنز المصمم</p>
+            </div>
+
+            <!-- Designer Card -->
+            <div class="about-designer-card rounded-2xl overflow-hidden">
+                <div class="about-container p-8 md:p-12">
+                    <!-- Content -->
+                    <div class="about-content">
+                        <span class="inline-block text-xs font-medium tracking-wider text-purple-400 px-4 py-2 rounded-lg mb-6 bg-purple-500/10 border border-purple-500/30">
+                            FOUNDER & DESIGNER
+                        </span>
+
+                        <h4 class="text-2xl md:text-4xl font-bold mb-6">
+                            <span id="about-name">أنا يوسف رسلان،</span>
+                            <span class="master-gradient whitespace-nowrap">UI UX Designer</span>
+                        </h4>
+
+                        <!-- FIXED: النص الآن يظهر بشكل متصل دون تقطيع -->
+                        <p class="text-muted-custom text-lg leading-relaxed mb-8 about-text-fix">
+                            <span id="about-desc">قررت أعمل مكتبة كنز المصمم لتجميع أفضل مصادر وأدوات UI/UX في مكان واحد،</span>
+                            <span class="text-purple-400 font-medium" id="about-highlight">وجعل الوصول للمعلومة أسرع وأسهل</span>
+                            <span id="about-desc-end"> وبشكل مجاني للمصممين.</span>
+                        </p>
+
+                        <div class="about-buttons flex items-center gap-3">
+                            <a href="https://www.linkedin.com/in/yousef-raslan/" target="_blank" rel="noopener noreferrer" 
+                               class="flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-medium transition-all duration-300 group bg-white/5 border border-white/10 hover:border-purple-500/30 hover:bg-purple-500/10"
+                               aria-label="Visit LinkedIn profile">
+                                <span>LinkedIn</span>
+                                <svg class="w-4 h-4 transition-transform group-hover:scale-110" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                                </svg>
+                            </a>
+                            <a href="https://www.behance.net/yousefraslan1" target="_blank" rel="noopener noreferrer"
+                               class="flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-medium transition-all duration-300 group bg-white/5 border border-white/10 hover:border-purple-500/30 hover:bg-purple-500/10"
+                               aria-label="Visit Behance profile">
+                                <span>Behance</span>
+                                <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current transition-transform group-hover:scale-110" aria-hidden="true">
+                                    <path d="M22 7h-7v-2h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14h-8.027c.13 3.211 3.483 3.312 4.588 2.029h3.168zm-7.686-4h4.965c-.105-1.547-1.136-2.219-2.477-2.219-1.466 0-2.277.768-2.488 2.219zm-9.574 6.988h-6.466v-14.967h6.953c5.476.081 5.58 5.444 2.72 6.906 3.461 1.26 3.577 8.061-3.207 8.061zm-3.466-8.988h3.584c2.508 0 2.906-3-.312-3h-3.272v3zm3.391 3h-3.391v3.016h3.341c3.055 0 2.868-3.016.05-3.016z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Designer Image -->
+                    <div class="about-image-container flex-shrink-0">
+                        <div class="relative w-64 h-64 mx-auto md:mx-0">
+                            <div class="absolute inset-0 bg-[#8E51FF] rounded-full blur-2xl opacity-25 animate-pulse"></div>
+                            
+                            <div class="relative w-full h-full rounded-full overflow-hidden border-4 border-[#8E51FF] shadow-2xl z-10">
+                                <img 
+                                    src="https://lh3.googleusercontent.com/d/1LyeSHHDjGNAv-YrQX4gajKJrHAwLBFLX" 
+                                    alt="Youssef Raslan - UI/UX Designer" 
+                                    class="w-full h-full object-cover transform hover:scale-110 transition duration-700 ease-in-out"
+                                    onerror="this.src='https://i.ibb.co/SwBf4n5C/profile.png';"
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-12 mt-auto relative z-10 border-t border-white/5" role="contentinfo">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-sm text-muted-custom">
+                <span id="footer-built">تم البناء بواسطة</span> 
+                <a href="https://www.linkedin.com/in/yousef-raslan/" target="_blank" rel="noopener noreferrer" style="color: var(--primary); font-weight: 600;" aria-label="Visit Youssef Reslan LinkedIn profile">
+                    Youssef Reslan
+                </a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT (نفس الكود السابق مع بعض التحسينات الطفيفة) -->
+    <script>
+        // ================= CONFIG =================
+        const API_URL = 'https://script.google.com/macros/s/AKfycbwk5GqJXwXEnva_6aXCI-O-YoBzCDAQbhxLceeVjIOiaOHmZMrh9EgaXK-9Fh-402Tu/exec';
+        const PAGE_SIZE = 6;
+        
+        const COLOR_PALETTE = [
+            { bg: 'bg-indigo-500/10', text: 'text-indigo-400', border: 'border-indigo-500/30' },
+            { bg: 'bg-purple-500/10', text: 'text-purple-400', border: 'border-purple-500/30' },
+            { bg: 'bg-blue-500/10', text: 'text-blue-400', border: 'border-blue-500/30' },
+            { bg: 'bg-pink-500/10', text: 'text-pink-400', border: 'border-pink-500/30' },
+            { bg: 'bg-orange-500/10', text: 'text-orange-400', border: 'border-orange-500/30' },
+            { bg: 'bg-yellow-500/10', text: 'text-yellow-400', border: 'border-yellow-500/30' },
+            { bg: 'bg-rose-500/10', text: 'text-rose-400', border: 'border-rose-500/30' },
+            { bg: 'bg-green-500/10', text: 'text-green-400', border: 'border-green-500/30' },
+            { bg: 'bg-cyan-500/10', text: 'text-cyan-400', border: 'border-cyan-500/30' },
+        ];
+
+        let allResources = [];
+        let currentResources = []; 
+        let visibleCount = PAGE_SIZE;
+        let currentCategory = null; 
+        let currentLang = 'ar';
+        let currentTheme = 'dark';
+        let translationCache = {};
+        let AVAILABLE_CATEGORIES = [];
+        let categoryColorMap = {};
+
+        // DOM Elements
+        const grid = document.getElementById('resources-grid');
+        const skeleton = document.getElementById('skeleton-grid');
+        const chipsContainer = document.getElementById('chips-container');
+        const loadButtonsContainer = document.getElementById('load-buttons-container');
+        const showMoreBtn = document.getElementById('show-more-btn');
+        const showLessBtn = document.getElementById('show-less-btn');
+        const searchInput = document.getElementById('search-input');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const pageLoader = document.getElementById('page-loader');
+        const toast = document.getElementById('toast');
+        const scrollHint = document.getElementById('scroll-hint');
+
+        // Share Tool Elements
+        const toolNameInput = document.getElementById('tool-name');
+        const toolUrlInput = document.getElementById('tool-url');
+        const toolDescInput = document.getElementById('tool-description');
+        const toolCategorySelect = document.getElementById('tool-category');
+        const previewName = document.getElementById('preview-name');
+        const previewDescription = document.getElementById('preview-description');
+        const previewCategory = document.getElementById('preview-category');
+        const previewIcon = document.getElementById('preview-icon');
+        const previewIconPlaceholder = document.getElementById('preview-icon-placeholder');
+
+        const i18n = {
+            ar: {
+                logo: "كنز المصمم",
+                title: "كنز المصمم",
+                badge: "مُحدّث باستمرار",
+                subtitle: "وجهتك الأولى لأفضل أدوات ومصادر UI/UX التي يحتاجها كل مصمم محترف في مكان واحد.",
+                searchPlaceholder: "ابحث عن أداة أو مصدر للتصميم",
+                home: "الرئيسية",
+                about: "من مصمم المكتبة؟",
+                share: "شارك أداتك",
+                shareHeader: "شاركنا أداتك المفضلة",
+                shareSubtitle: "ساهم في إثراء المكتبة بمشاركة أدواتك وموارد UI/UX المفضلة مع المجتمع.",
+                aboutHeader: "من مصمم المكتبة؟",
+                aboutSubheader: "معلومات بسيطة عن مصمم مكتبة كنز المصمم",
+                aboutName: "أنا يوسف رسلان،",
+                aboutDesc: "قررت أعمل مكتبة كنز المصمم لتجميع أفضل مصادر وأدوات UI/UX في مكان واحد،",
+                aboutHighlight: "وجعل الوصول للمعلومة أسرع وأسهل",
+                aboutDescEnd: " وبشكل مجاني للمصممين.",
+                resourcesTitle: "المصادر المميزة",
+                counterSuffix: "مصدر متاح",
+                all: "All",
+                showMore: "عرض المزيد",
+                showLess: "عرض أقل",
+                open: "فتح",
+                langBtn: "English",
+                themeDark: "الوضع الداكن",
+                themeLight: "الوضع الفاتح",
+                footerBuilt: "تم البناء بواسطة",
+                toastSuccess: "تم استلام أداتك بنجاح! أداتك الآن قيد المراجعة لتنضم للمكتبة.",
+                errorRequired: "يرجى ملء جميع الحقول المطلوبة",
+                errorUrl: "يرجى إدخال رابط صحيح",
+                errorNetwork: "حدث خطأ في الاتصال، يرجى المحاولة مرة أخرى",
+                previewTitle: "سيظهر شكل الأداة هنا قبل الإرسال",
+                previewDesc: "سيظهر وصف الأداة هنا كما سيظهر لباقي المستخدمين",
+                toolNameLabel: "اسم الأداة",
+                toolUrlLabel: "رابط الموقع",
+                toolCategoryLabel: "التصنيف",
+                toolDescriptionLabel: "وصف قصير",
+                submitBtn: "إضافة الأداة",
+                importantNotesTitle: "ملاحظات هامة",
+                importantNote1: "يرجى التأكد من أن الأداة التي تقوم بإضافتها تدعم مصممين UI/UX بشكل مباشر.",
+                importantNote2: "سيتم مراجعة جميع الأدوات يدوياً قبل إضافتها إلى المكتبة.",
+                categoryPlaceholder: "اختر تصنيفاً",
+                previewNameDefault: "اسم الأداة",
+                toolNamePlaceholder: "مثال: Figma",
+                toolDescPlaceholder: "اكتب وصفاً مختصراً للأداة...",
+                noResultsCategoryTitle: "لا توجد نتائج داخل هذا التصنيف",
+                noResultsCategoryBody: "جرّب تغيّر التصنيف أو اختار “All” ثم ابحث مرة أخرى.",
+                noResultsGeneralTitle: "لا توجد نتائج لهذا البحث.",
+                noResultsGeneralBody: "جرّب كلمة أبسط أو امسح جزء من النص.",
+                mobileLanguageLabel: "اللغة"
+            },
+            en: {
+                logo: "Kenz Designer",
+                title: "Kenz Designer",
+                badge: "Constantly Updated",
+                subtitle: "Your first destination for best UI/UX tools and resources that every professional designer needs in one place.",
+                searchPlaceholder: "Search for a tool or design resource",
+                home: "Home",
+                about: "Who designed this?",
+                share: "Share Your Tool",
+                shareHeader: "Share Your Favorite Tool",
+                shareSubtitle: "Contribute to enriching the library by sharing your favorite UI/UX tools and resources with the community.",
+                aboutHeader: "Who designed this?",
+                aboutSubheader: "Brief info about Kenz Designer library creator",
+                aboutName: "I'm Yousef Raslan,",
+                aboutDesc: "I decided to create Kenz library to gather the best UI/UX resources and tools in one place,",
+                aboutHighlight: "making information access faster and easier",
+                aboutDescEnd: " and completely free for designers.",
+                resourcesTitle: "Resources",
+                counterSuffix: "Resources Available",
+                all: "All",
+                showMore: "Show More",
+                showLess: "Show Less",
+                open: "Open",
+                langBtn: "العربية",
+                themeDark: "Dark Mode",
+                themeLight: "Light Mode",
+                footerBuilt: "Built by",
+                toastSuccess: "Tool received successfully! Your tool is now under review to join the library.",
+                errorRequired: "Please fill in all required fields",
+                errorUrl: "Please enter a valid URL",
+                errorNetwork: "Connection error, please try again",
+                previewTitle: "Tool Preview Before Submission",
+                previewDesc: "Tool description will appear here as it will appear to other users",
+                toolNameLabel: "Tool Name",
+                toolUrlLabel: "Website URL",
+                toolCategoryLabel: "Category",
+                toolDescriptionLabel: "Short Description",
+                submitBtn: "Add Tool",
+                importantNotesTitle: "Important Notes",
+                importantNote1: "Please make sure the tool you are adding directly supports UI/UX designers.",
+                importantNote2: "All tools will be manually reviewed before being added to the library.",
+                categoryPlaceholder: "Choose Category",
+                previewNameDefault: "Tool Name",
+                toolNamePlaceholder: "e.g. Figma",
+                toolDescPlaceholder: "Write a short description for the tool...",
+                noResultsCategoryTitle: "No results in this category",
+                noResultsCategoryBody: "Try a different category, or select “All” then search again.",
+                noResultsGeneralTitle: "No results found.",
+                noResultsGeneralBody: "Try a simpler keyword or remove part of your query.",
+                mobileLanguageLabel: "Language"
+            }
+        };
+
+        // ================= TRANSLATION =================
+        async function getTranslation(text, targetLang) {
+            if (!text || targetLang === 'ar') return text;
+            const key = text.trim();
+            if (translationCache[key]) return translationCache[key];
+
+            try {
+                const res = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=ar|en`);
+                const data = await res.json();
+                const translated = data.responseData.translatedText;
+                translationCache[key] = translated;
+                return translated;
+            } catch (e) {
+                console.warn("Translation failed", e);
+                return text;
+            }
+        }
+
+        // ================= CATEGORY COLOR =================
+        function getCategoryColor(category) {
+            if (!categoryColorMap[category]) {
+                const index = Object.keys(categoryColorMap).length % COLOR_PALETTE.length;
+                categoryColorMap[category] = COLOR_PALETTE[index];
+            }
+            return categoryColorMap[category];
+        }
+
+        // ================= INITIALIZATION =================
+        document.addEventListener('DOMContentLoaded', () => {
+            updateThemeIcon();
+            updateUIStrings();
+            populateCategoryDropdown();
+            renderChips();
+            updatePreview();
+            initScrollHint();
+            fetchResources();
+
+            setTimeout(() => {
+                pageLoader.classList.add('hidden');
+                document.body.classList.remove('loading');
+            }, 800);
+        });
+
+        function initScrollHint() {
+            if (!scrollHint || !chipsContainer) return;
+            const hideEffects = () => {
+                scrollHint.classList.add('paused');
+                setTimeout(() => {
+                    if(scrollHint) scrollHint.style.display = 'none';
+                }, 500);
+            };
+            chipsContainer.addEventListener('scroll', hideEffects, { once: true });
+        }
+
+        async function fetchResources() {
+            try {
+                const response = await fetch(API_URL);
+                const data = await response.json();
+                allResources = Array.isArray(data) ? data : (data.data || []);
+                allResources = allResources.filter(item => item.status !== 'hidden');
+                
+                const categoryOrder = [];
+                allResources.forEach(item => {
+                    if (item.category && !categoryOrder.includes(item.category)) {
+                        categoryOrder.push(item.category);
+                    }
+                });
+                
+                AVAILABLE_CATEGORIES = categoryOrder;
+                populateCategoryDropdown();
+                renderChips();
+                filterAndSortResources();
+            } catch (error) {
+                console.error(error);
+                skeleton.innerHTML = '<div class="col-span-full text-center text-red-400 p-10">Error loading data.</div>';
+                pageLoader.classList.add('hidden');
+                document.body.classList.remove('loading');
+            }
+        }
+
+        function populateCategoryDropdown() {
+            toolCategorySelect.innerHTML = '';
+            const placeholderOption = document.createElement('option');
+            placeholderOption.value = '';
+            placeholderOption.textContent = i18n[currentLang].categoryPlaceholder;
+            placeholderOption.disabled = true;
+            placeholderOption.selected = true;
+            toolCategorySelect.appendChild(placeholderOption);
+            
+            AVAILABLE_CATEGORIES.forEach(category => {
+                const option = document.createElement('option');
+                option.value = category;
+                option.textContent = category;
+                toolCategorySelect.appendChild(option);
+            });
+        }
+
+        function renderChips() {
+            chipsContainer.innerHTML = '';
+            chipsContainer.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
+            
+            const allBtn = document.createElement('button');
+            allBtn.className = `chip whitespace-nowrap px-6 py-2.5 rounded-2xl text-sm font-bold ${currentCategory === null ? 'active' : ''}`;
+            allBtn.textContent = i18n[currentLang].all;
+            allBtn.setAttribute('role', 'tab');
+            allBtn.setAttribute('aria-selected', currentCategory === null);
+            allBtn.onclick = () => {
+                currentCategory = null;
+                visibleCount = PAGE_SIZE;
+                updateChipsUI();
+                filterAndSortResources();
+            };
+            chipsContainer.appendChild(allBtn);
+
+            AVAILABLE_CATEGORIES.forEach(cat => {
+                const btn = document.createElement('button');
+                btn.className = `chip whitespace-nowrap px-6 py-2.5 rounded-2xl text-sm font-bold ${currentCategory === cat ? 'active' : ''}`;
+                btn.textContent = cat;
+                btn.setAttribute('role', 'tab');
+                btn.setAttribute('aria-selected', currentCategory === cat);
+                btn.onclick = () => {
+                    currentCategory = cat;
+                    visibleCount = PAGE_SIZE;
+                    updateChipsUI();
+                    filterAndSortResources();
+                };
+                chipsContainer.appendChild(btn);
+            });
+            
+            updateUIStrings();
+        }
+
+        function updateChipsUI() {
+            const buttons = chipsContainer.getElementsByTagName('button');
+            const allText = i18n[currentLang].all;
+            
+            Array.from(buttons).forEach(btn => {
+                const isAll = (currentCategory === null && btn.textContent.includes(allText)) || 
+                              (currentCategory !== null && btn.textContent === currentCategory);
+                
+                if (isAll) {
+                    btn.classList.add('active');
+                    btn.setAttribute('aria-selected', 'true');
+                } else {
+                    btn.classList.remove('active');
+                    btn.setAttribute('aria-selected', 'false');
+                }
+            });
+        }
+
+        function filterAndSortResources() {
+            const query = searchInput.value.toLowerCase();
+            let filtered = allResources.filter(item => {
+                return item.name.toLowerCase().includes(query) || 
+                       item.description.toLowerCase().includes(query);
+            });
+
+            if (currentCategory !== null && currentCategory !== undefined) {
+                filtered = filtered.filter(item => item.category === currentCategory);
+            } else {
+                const grouped = {};
+                AVAILABLE_CATEGORIES.forEach(cat => grouped[cat] = []);
+                
+                filtered.forEach(item => {
+                    if (!grouped[item.category]) grouped[item.category] = [];
+                    grouped[item.category].push(item);
+                });
+
+                let roundRobin = [];
+                let maxLength = 0;
+                Object.values(grouped).forEach(arr => {
+                    if (arr.length > maxLength) maxLength = arr.length;
+                });
+
+                for (let i = 0; i < maxLength; i++) {
+                    AVAILABLE_CATEGORIES.forEach(cat => {
+                        if (grouped[cat] && grouped[cat][i]) {
+                            roundRobin.push(grouped[cat][i]);
+                        }
+                    });
+                }
+
+                filtered = roundRobin;
+            }
+
+            currentResources = filtered;
+            renderResources();
+        }
+
+        async function renderResources() {
+            skeleton.style.display = 'none';
+            grid.classList.remove('hidden');
+            grid.innerHTML = ''; 
+            
+            const total = currentResources.length;
+            document.getElementById('resources-counter').textContent = `${total} ${i18n[currentLang].counterSuffix}`;
+            
+            if (total === 0 || total <= PAGE_SIZE) {
+                loadButtonsContainer.classList.add('hidden');
+            } else {
+                loadButtonsContainer.classList.remove('hidden');
+                if (visibleCount >= total) {
+                    showMoreBtn.classList.add('hidden');
+                } else {
+                    showMoreBtn.classList.remove('hidden');
+                }
+
+                if (visibleCount <= PAGE_SIZE) {
+                    showLessBtn.classList.add('hidden');
+                } else {
+                    showLessBtn.classList.remove('hidden');
+                }
+            }
+            
+            if (total === 0) {
+                const t = i18n[currentLang];
+                let emptyTitle = t.noResultsGeneralTitle;
+                let emptyBody = t.noResultsGeneralBody;
+
+                if (currentCategory !== null && currentCategory !== undefined) {
+                    emptyTitle = t.noResultsCategoryTitle;
+                    emptyBody = t.noResultsCategoryBody;
+                }
+
+                grid.innerHTML = `
+                    <div class="col-span-full text-center py-16 flex flex-col items-center justify-center">
+                        <div class="w-20 h-20 mb-6 rounded-full bg-white/5 flex items-center justify-center mx-auto">
+                            <svg class="w-10 h-10 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-main-color">${emptyTitle}</h3>
+                        <p class="text-muted-custom max-w-md mx-auto text-sm leading-relaxed">${emptyBody}</p>
+                    </div>
+                `;
+                return;
+            }
+
+            const itemsToShow = currentResources.slice(0, visibleCount);
+
+            if (currentLang === 'en') {
+                const translationPromises = itemsToShow.map(item => getTranslation(item.description, 'en'));
+                const translatedDescs = await Promise.all(translationPromises);
+                
+                itemsToShow.forEach((item, index) => {
+                    item.displayDesc = translatedDescs[index];
+                    renderSingleCard(item, index);
+                });
+            } else {
+                itemsToShow.forEach((item, index) => {
+                    item.displayDesc = item.description;
+                    renderSingleCard(item, index);
+                });
+            }
+        }
+
+        function renderSingleCard(item, index) {
+            const domain = new URL(item.url).hostname;
+            const iconUrl = `https://www.google.com/s2/favicons?domain=${domain}&sz=64`;
+            
+            const colorObj = getCategoryColor(item.category);
+            const badgeStyle = `${colorObj.bg} ${colorObj.text} ${colorObj.border}`;
+
+            const card = document.createElement('article');
+            card.className = `glass-card rounded-2xl p-6 flex flex-col h-full animate-stagger relative overflow-hidden group`;
+            card.style.animationDelay = `${(index % PAGE_SIZE) * 0.05}s`;
+            card.setAttribute('role', 'listitem');
+            
+            const externalIconPath = "M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14";
+
+            card.innerHTML = `
+                <div class="flex items-start justify-between mb-4">
+                    <div class="w-12 h-12 rounded-xl overflow-hidden flex items-center justify-center bg-transparent border-none" style="clip-path: inset(0px round 12px);">
+                        <img src="${iconUrl}" alt="${item.name} icon" class="w-full h-full object-contain" onerror="this.style.display='none'" loading="lazy">
+                    </div>
+                    <span class="card-badge ${badgeStyle}" aria-label="Category: ${item.category}">
+                        ${item.category}
+                    </span>
+                </div>
+                
+                <div class="mb-6 flex-grow">
+                    <h4 class="text-lg font-bold mb-2 truncate">${item.name}</h4>
+                    <p class="text-sm leading-relaxed line-clamp-2 text-muted-custom">${item.displayDesc}</p>
+                </div>
+                
+                <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="open-btn w-full py-3 rounded-xl border flex items-center justify-center gap-2 text-sm font-bold uppercase tracking-wide transition-all" aria-label="Open ${item.name} in new tab">
+                    <span>${i18n[currentLang].open}</span>
+                    <svg class="w-4 h-4 transition-transform group-hover:-translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${externalIconPath}"></path>
+                    </svg>
+                </a>
+            `;
+            grid.appendChild(card);
+        }
+
+        function showMore() {
+            visibleCount = Math.min(visibleCount + PAGE_SIZE, currentResources.length);
+            renderResources();
+            
+            if (visibleCount > PAGE_SIZE) {
+                const newCards = document.querySelectorAll('#resources-grid article');
+                if (newCards.length > 0) {
+                    const lastCard = newCards[newCards.length - 1];
+                    
+                    if (window.innerWidth >= 768) {
+                        lastCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    } else {
+                        const yOffset = lastCard.getBoundingClientRect().top + window.pageYOffset - 120;
+                        window.scrollTo({ top: yOffset, behavior: 'smooth' });
+                    }
+                }
+            }
+        }
+
+        function showLess() {
+            visibleCount = PAGE_SIZE;
+            renderResources();
+            
+            const resourcesTitle = document.getElementById('resources-title');
+            if (resourcesTitle) {
+                const headerOffset = 100;
+                const elementPosition = resourcesTitle.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+            }
+        }
+
+        function handleSearch() {
+            visibleCount = PAGE_SIZE;
+            filterAndSortResources();
+        }
+
+        function updateThemeIcon() {
+            const mobileThemeSwitch = document.getElementById('mobile-theme-switch');
+            const sunIcon = document.getElementById('icon-sun');
+            const moonIcon = document.getElementById('icon-moon');
+            
+            if (currentTheme === 'dark') {
+                mobileThemeSwitch.classList.remove('active');
+                document.getElementById('mobile-theme-text').textContent = i18n[currentLang].themeLight;
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+            } else {
+                mobileThemeSwitch.classList.add('active');
+                document.getElementById('mobile-theme-text').textContent = i18n[currentLang].themeDark;
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+            }
+        }
+
+        function toggleTheme() {
+            const html = document.documentElement;
+            currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', currentTheme);
+            updateThemeIcon();
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            const html = document.documentElement;
+            const isRTL = currentLang === 'ar';
+            
+            document.body.style.opacity = '0.8';
+            setTimeout(() => {
+                html.setAttribute('lang', currentLang);
+                html.setAttribute('dir', isRTL ? 'rtl' : 'ltr');
+                document.body.style.opacity = '1';
+            }, 150);
+            
+            setTimeout(() => {
+                populateCategoryDropdown();
+                renderChips();
+                renderResources();
+                updateUIStrings();
+                updatePreview();
+            }, 200);
+        }
+
+        function updateUIStrings() {
+            const t = i18n[currentLang];
+            
+            document.getElementById('main-logo').textContent = t.logo;
+            document.getElementById('hero-title').textContent = t.title;
+            document.getElementById('hero-badge').textContent = t.badge;
+            document.getElementById('hero-subtitle').textContent = t.subtitle;
+            document.getElementById('search-input').placeholder = t.searchPlaceholder;
+            
+            document.querySelectorAll('[onclick*="scrollToTop()"]').forEach(btn => {
+                if (btn.textContent.includes('الرئيسية') || btn.textContent.includes('Home')) {
+                    btn.textContent = t.home;
+                }
+            });
+            
+            document.querySelectorAll('[onclick*="scrollToSection(\'about\')"]').forEach(btn => {
+                if (!btn.id.includes('hero')) btn.textContent = t.about;
+            });
+            
+            document.querySelectorAll('[onclick*="scrollToSection(\'share\')"]').forEach(btn => {
+                btn.textContent = t.share;
+            });
+            
+            document.getElementById('about-header').textContent = t.aboutHeader;
+            document.getElementById('about-subheader').textContent = t.aboutSubheader;
+            document.getElementById('about-name').textContent = t.aboutName;
+            document.getElementById('about-desc').textContent = t.aboutDesc;
+            document.getElementById('about-highlight').textContent = t.aboutHighlight;
+            document.getElementById('about-desc-end').textContent = t.aboutDescEnd;
+            
+            document.getElementById('share-header').textContent = t.shareHeader;
+            document.getElementById('share-subtitle').textContent = t.shareSubtitle;
+            document.getElementById('resources-title').textContent = t.resourcesTitle;
+            document.getElementById('footer-built').textContent = t.footerBuilt;
+            document.getElementById('toast-message').textContent = t.toastSuccess;
+            
+            document.getElementById('preview-title').textContent = t.previewTitle;
+            document.getElementById('preview-open-btn').textContent = t.open;
+            document.getElementById('tool-name-label').textContent = t.toolNameLabel;
+            document.getElementById('tool-url-label').textContent = t.toolUrlLabel;
+            document.getElementById('tool-category-label').textContent = t.toolCategoryLabel;
+            document.getElementById('tool-description-label').textContent = t.toolDescriptionLabel;
+            document.getElementById('submit-btn').textContent = t.submitBtn;
+            document.getElementById('important-notes-title').textContent = t.importantNotesTitle;
+            document.getElementById('important-note-1').textContent = t.importantNote1;
+            document.getElementById('important-note-2').textContent = t.importantNote2;
+            
+            document.getElementById('tool-name').placeholder = t.toolNamePlaceholder;
+            document.getElementById('tool-description').placeholder = t.toolDescPlaceholder;
+
+            const categorySelect = document.getElementById('tool-category');
+            if (categorySelect.firstChild) {
+                categorySelect.firstChild.textContent = t.categoryPlaceholder;
+            }
+            
+            document.querySelector('[onclick="toggleLanguage()"]').textContent = t.langBtn;
+            document.getElementById('mobile-lang-text').textContent = currentLang === 'ar' ? 'EN' : 'AR';
+            
+            const langLabel = document.getElementById('mobile-menu-lang-label');
+            if (langLabel) {
+                langLabel.textContent = t.mobileLanguageLabel;
+            }
+
+            document.getElementById('mobile-theme-text').textContent = currentTheme === 'dark' ? t.themeLight : t.themeDark;
+
+            document.title = currentLang === 'ar' ? 'كنز المصمم | Kenz Designer - أفضل مكتبة لأدوات ومصادر UI/UX' : 'Kenz Designer | Best UI/UX Tools & Resources Library';
+        }
+
+        function updatePreview() {
+            const name = toolNameInput.value || i18n[currentLang].previewNameDefault;
+            const description = toolDescInput.value || i18n[currentLang].toolDescPlaceholder;
+            const category = toolCategorySelect.value;
+            
+            previewName.textContent = name;
+            previewDescription.textContent = description;
+            
+            if (category) {
+                previewCategory.textContent = category;
+                const colorObj = getCategoryColor(category);
+                previewCategory.className = `card-badge ${colorObj.bg} ${colorObj.text} ${colorObj.border}`;
+            } else {
+                previewCategory.textContent = i18n[currentLang].categoryPlaceholder;
+                previewCategory.className = `card-badge bg-white/5 text-gray-400 border-white/10`;
+            }
+        }
+
+        async function fetchFavicon() {
+            const url = toolUrlInput.value;
+            if (!url || !isValidUrl(url)) return;
+            
+            try {
+                const domain = new URL(url).hostname;
+                const faviconUrl = `https://www.google.com/s2/favicons?domain=${domain}&sz=64`;
+                
+                previewIcon.src = faviconUrl;
+                previewIcon.classList.remove('hidden');
+                previewIconPlaceholder.classList.add('hidden');
+                
+                if(url.length === 0) {
+                    previewIcon.classList.add('hidden');
+                    previewIconPlaceholder.classList.remove('hidden');
+                }
+            } catch (error) {
+                console.warn('Could not fetch favicon:', error);
+            }
+        }
+
+        function isValidUrl(string) {
+            try {
+                new URL(string);
+                return true;
+            } catch (_) {
+                return false;
+            }
+        }
+
+        async function submitTool() {
+            const name = toolNameInput.value;
+            const url = toolUrlInput.value;
+            const description = toolDescInput.value;
+            const category = toolCategorySelect.value;
+            
+            if (!name || !url || !description || !category) {
+                 showToast(i18n[currentLang].errorRequired, 'error');
+                 return;
+            }
+
+            if (!isValidUrl(url)) {
+                showToast(i18n[currentLang].errorUrl, 'error');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('name', name);
+            formData.append('url', url);
+            formData.append('description', description);
+            formData.append('category', category);
+            formData.append('status', 'hidden'); 
+            
+            const submitBtn = document.getElementById('submit-btn');
+            const originalBtnText = submitBtn.textContent;
+            submitBtn.textContent = (currentLang === 'ar' ? "جاري الإرسال..." : "Sending...");
+            submitBtn.disabled = true;
+            submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
+
+            try {
+                await fetch(API_URL, {
+                    method: 'POST',
+                    mode: 'no-cors', 
+                    body: formData
+                });
+                
+                showToast(i18n[currentLang].toastSuccess, 'success');
+                
+                toolNameInput.value = '';
+                toolUrlInput.value = '';
+                toolDescInput.value = '';
+                toolCategorySelect.value = '';
+                previewIcon.classList.add('hidden');
+                previewIconPlaceholder.classList.remove('hidden');
+                updatePreview();
+                
+            } catch (error) {
+                console.error('Submission error:', error);
+                showToast(i18n[currentLang].errorNetwork, 'error');
+            } finally {
+                submitBtn.textContent = originalBtnText;
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
+            }
+        }
+
+        function showToast(message, type = 'success') {
+            const toastElement = document.getElementById('toast');
+            const toastMessage = document.getElementById('toast-message');
+            
+            toastMessage.textContent = message;
+            
+            if (type === 'error') {
+                toastElement.style.background = 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)';
+            } else {
+                toastElement.style.background = 'linear-gradient(135deg, #10b981 0%, #059669 100%)';
+            }
+            
+            toastElement.classList.remove('hidden');
+            toastElement.classList.add('show');
+            
+            setTimeout(() => {
+                toastElement.classList.remove('show');
+                setTimeout(() => {
+                    toastElement.classList.add('hidden');
+                }, 400);
+            }, 4000);
+        }
+
+        function toggleMobileMenu(forceClose = null) {
+            const isClosed = mobileMenu.classList.contains('-translate-y-[150%]');
+            
+            if (forceClose !== null && forceClose === true) {
+                mobileMenu.classList.add('-translate-y-[150%]');
+                mobileMenuOverlay.classList.remove('active');
+                hamburgerBtn.setAttribute('aria-expanded', 'false');
+            } else {
+                if (isClosed) {
+                    mobileMenu.classList.remove('-translate-y-[150%]');
+                    mobileMenuOverlay.classList.add('active');
+                    hamburgerBtn.setAttribute('aria-expanded', 'true');
+                } else {
+                    mobileMenu.classList.add('-translate-y-[150%]');
+                    mobileMenuOverlay.classList.remove('active');
+                    hamburgerBtn.setAttribute('aria-expanded', 'false');
+                }
+            }
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+            if (window.innerWidth < 768) {
+                toggleMobileMenu(true);
+            }
+        }
+
+        function scrollToSection(id) {
+            const el = document.getElementById(id);
+            if(el) {
+                const headerOffset = 80;
+                const elementPosition = el.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+            }
+            
+            if (window.innerWidth < 768) {
+                toggleMobileMenu(true);
+            }
+        }
+    </script>
+</body>
+</html>
