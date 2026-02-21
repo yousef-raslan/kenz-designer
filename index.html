@@ -988,7 +988,7 @@
     <!-- JAVASCRIPT -->
     <script>
         // ================= CONFIG =================
-        const API_URL = 'https://script.google.com/macros/s/AKfycbwk5GqJXwXEnva_6aXCI-O-YoBzCDAQbhxLceeVjIOiaOHmZMrh9EgaXK-9Fh-402Tu/exec';
+        const API_URL = 'https://script.google.com/macros/s/AKfycbzl6IWl_BpX2aDnhdJJgDnp4dLu0NKZY-KlCZsC8E7o6w67vn6xseaVGqkMpS6-6LeF/exec';
         const PAGE_SIZE = 6;
         
         const COLOR_PALETTE = [
@@ -1009,7 +1009,6 @@
         let currentCategory = null; 
         let currentLang = 'ar';
         let currentTheme = 'dark';
-        let translationCache = {};
         let AVAILABLE_CATEGORIES = [];
         let categoryColorMap = {};
 
@@ -1143,33 +1142,6 @@
                 mobileLanguageLabel: "Language"
             }
         };
-
-        // ================= TRANSLATION =================
-        async function getTranslation(text, targetLang) {
-            if (!text || targetLang === 'ar') return text;
-            const key = text.trim();
-            if (translationCache[key]) return translationCache[key];
-
-            try {
-                const res = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=ar|en`);
-                const data = await res.json();
-                const translated = data.responseData.translatedText;
-                translationCache[key] = translated;
-                return translated;
-            } catch (e) {
-                console.warn("Translation failed", e);
-                return text;
-            }
-        }
-
-        // ================= CATEGORY COLOR =================
-        function getCategoryColor(category) {
-            if (!categoryColorMap[category]) {
-                const index = Object.keys(categoryColorMap).length % COLOR_PALETTE.length;
-                categoryColorMap[category] = COLOR_PALETTE[index];
-            }
-            return categoryColorMap[category];
-        }
 
         // ================= INITIALIZATION =================
         document.addEventListener('DOMContentLoaded', () => {
@@ -1353,7 +1325,8 @@
             renderResources();
         }
 
-        async function renderResources() {
+        // ================= التعديل الثالث: الدالة المتزامنة الجديدة =================
+        function renderResources() {
             skeleton.style.display = 'none';
             grid.classList.remove('hidden');
             grid.innerHTML = ''; 
@@ -1404,21 +1377,18 @@
 
             const itemsToShow = currentResources.slice(0, visibleCount);
 
-            if (currentLang === 'en') {
-                const translationPromises = itemsToShow.map(item => getTranslation(item.description, 'en'));
-                const translatedDescs = await Promise.all(translationPromises);
-                
-                itemsToShow.forEach((item, index) => {
-                    item.displayDesc = translatedDescs[index];
-                    renderSingleCard(item, index);
-                });
-            } else {
-                itemsToShow.forEach((item, index) => {
+            itemsToShow.forEach((item, index) => {
+                if (currentLang === 'en') {
+                    // الاعتماد على الترجمة من الشيت، وإذا كانت فارغة نستخدم العربي كاحتياطي
+                    item.displayDesc = item.description_en ? item.description_en : item.description;
+                } else {
+                    // الاعتماد على الوصف العربي
                     item.displayDesc = item.description;
-                    renderSingleCard(item, index);
-                });
-            }
+                }
+                renderSingleCard(item, index);
+            });
         }
+        // ================= نهاية التعديل الثالث =================
 
         function renderSingleCard(item, index) {
             const domain = new URL(item.url).hostname;
@@ -1494,6 +1464,14 @@
         function handleSearch() {
             visibleCount = PAGE_SIZE;
             filterAndSortResources();
+        }
+
+        function getCategoryColor(category) {
+            if (!categoryColorMap[category]) {
+                const index = Object.keys(categoryColorMap).length % COLOR_PALETTE.length;
+                categoryColorMap[category] = COLOR_PALETTE[index];
+            }
+            return categoryColorMap[category];
         }
 
         function updateThemeIcon() {
